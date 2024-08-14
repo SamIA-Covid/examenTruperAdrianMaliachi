@@ -1,0 +1,174 @@
+{
+	"info": {
+		"_postman_id": "62f7a583-634a-437b-8c18-e561e20bc08f",
+		"name": "Examen",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "3019806"
+	},
+	"item": [
+		{
+			"name": "Autenticacion",
+			"item": [
+				{
+					"name": "http://localhost:8080/autenticacion/agregarUsuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"amali\",\r\n    \"password\":\"123\",\r\n    \"email\": \"adrianmaliachi@gamil.com\",\r\n    \"roles\" : \"ROLE_ADMIN\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/autenticacion/agregarUsuario"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/autenticacion/generarToken",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"amali\",\r\n    \"password\":\"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/autenticacion/generarToken"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sucursales",
+			"item": [
+				{
+					"name": "http://localhost:8080/sucursales/guardar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWFsaSIsImlhdCI6MTcyMzYwMzUwMCwiZXhwIjoxNzIzNjA0MTAwfQ.OcZRr_Q0lNuDPt3_2vaiz15X2Zp4NtVz5uArTmq5VUw"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sucursalId\": 2,\r\n    \"nombre\": \"EDOMEX\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/sucursales/guardar"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ordenes",
+			"item": [
+				{
+					"name": "http://localhost:8080/ordenes/guardar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWFsaSIsImlhdCI6MTcyMzYwMzM0NywiZXhwIjoxNzIzNjAzOTQ3fQ.L9tTZfCrDndtcEjudrjKOi72eAxAAbouAnTykh99LVY"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ordenId\": 2,\r\n    \"fecha\": \"2024-08-13\",\r\n    \"total\": 0,\r\n    \"sucursales\":{\r\n        \"sucursalId\":1\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/ordenes/guardar"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/ordenes/buscar/1",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWFsaSIsImlhdCI6MTcyMzYwMjg1OCwiZXhwIjoxNzIzNjAzNDU4fQ.X8sWHcQ7N5AmNhyjraAmlc5o0CXoeQXpE4RXrypeWn4"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/ordenes/buscar/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Productos",
+			"item": [
+				{
+					"name": "http://localhost:8080/productos/guardar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbWFsaSIsImlhdCI6MTcyMzYwMzUwMCwiZXhwIjoxNzIzNjA0MTAwfQ.OcZRr_Q0lNuDPt3_2vaiz15X2Zp4NtVz5uArTmq5VUw"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"productoId\": 3,\r\n        \"codigo\": \"18156\",\r\n        \"descripcion\": \"Esmeriladora angular\",\r\n        \"precio\": 625,\r\n        \"ordenes\":{\r\n            \"ordenId\":1\r\n        }\r\n    },\r\n    {\r\n        \"productoId\": 4,\r\n        \"codigo\": \"17193\",\r\n        \"descripcion\": \"Pala redonda\",\r\n        \"precio\": 100.50,\r\n        \"ordenes\":{\r\n            \"ordenId\":1\r\n        }\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/productos/guardar"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/productos/actualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productoId\": 2,\r\n    \"precio\": 99.99\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/productos/actualizar"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

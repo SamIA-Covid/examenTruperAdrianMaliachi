@@ -22,8 +22,7 @@ public class OrdenesController {
 	
 	@PostMapping("/guardar")
 	@PreAuthorize("hasAuthority('ROLE_ADMIN')")
-	public ResponseEntity<Ordenes> guardarOrden(@RequestBody Ordenes orden) {	
-		
+	public ResponseEntity<Ordenes> guardarOrden(@RequestBody Ordenes orden) {			
 		return new ResponseEntity<>(ordenesService.guardarOrdenes(orden),HttpStatus.CREATED);	
 	}
 	

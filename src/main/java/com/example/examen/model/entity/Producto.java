@@ -2,7 +2,6 @@ package com.example.examen.model.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -22,7 +21,7 @@ public class Producto {
 	@Column(nullable = false, length = 200)
 	private String descripcion;
 	private Double precio;
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	private Ordenes ordenes;
 
 }

@@ -31,7 +31,8 @@ public class ProductosController {
 	@PutMapping("/actualizar")
 	@PreAuthorize("hasAuthority('ROLE_ADMIN')")
 	public ResponseEntity<Producto> actualizarProducto(@RequestBody Producto producto){
-		return new ResponseEntity<>(productosService.actualizarProducto(producto),HttpStatus.CREATED);
+		Producto productoGuardado=productosService.actualizarProducto(producto);
+		return new ResponseEntity<>(productoGuardado,HttpStatus.CREATED);
 	}
 
 }
