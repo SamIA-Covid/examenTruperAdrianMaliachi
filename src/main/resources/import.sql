@@ -1,1 +1,1 @@
-INSERT INTO sucursales (sucursal_id, nombre) VALUES(1, 'CDMX');
+INSERT INTO SUCURSALES (sucursalId, nombre) VALUES(1, 'CDMX');
